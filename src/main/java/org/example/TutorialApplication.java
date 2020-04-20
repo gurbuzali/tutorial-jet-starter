@@ -16,10 +16,14 @@
 
 package org.example;
 
+import com.hazelcast.jet.Jet;
 import com.hazelcast.jet.JetInstance;
+import com.hazelcast.jet.config.JetConfig;
+import com.hazelcast.jet.impl.config.ConfigProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.hazelcast.HazelcastAutoConfiguration;
 
 @SpringBootApplication
 public class TutorialApplication {
@@ -28,6 +32,9 @@ public class TutorialApplication {
     JetInstance jetInstance;
 
     public static void main(String[] args) {
+        Jet.newJetInstance();
+
+//        System.setProperty("hazelcast.jet.server.config","file:config/hazelcast-jet.yaml");
         SpringApplication.run(TutorialApplication.class, args);
     }
 }
